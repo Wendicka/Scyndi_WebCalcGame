@@ -1,5 +1,7 @@
 void MenuDo Choice:Integer
 	writeln "User chose:",choice
+	somtype=choice
+	GotoConfig
 end
 
 void MenuLink Choice:Integer,Description:String
