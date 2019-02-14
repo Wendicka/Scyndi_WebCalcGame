@@ -19,7 +19,9 @@ var
 	somtype:Integer=0
 	task:Integer
 	tasks:Integer
-	
+	cnum:Integer
+	cnummin:Integer
+	cnummax:integer 
 
 	flow:String
 end

@@ -1,27 +1,48 @@
 Void GoToConfig
 	Var confQuestion:string
+	var category:string
 	Switch SomType
-		case 1:
+		case 1
+			category="Multiplication tables"
 			cnummin=2
 			cnummax=10
 			confQuestion="Which table do you want to do?"
-		case 2:
+		case 2
+			category="Additions"
 			cnummin=10
 			cnummax=1000
 			confQuestion="How high may the number be on which I may generate tasks?"
-		case 3:
+		case 3
+			category="Substraction"
 			cnummin=25
 			cnummax=1000
 			confQuestion="How high may the number be on which I may generate tasks?"
-		case 4:
+		case 4
+			category="Dividing"
 			cnummin=10
 			cnummax=1000
 			confQuestion="How high may the number you want to divide be max?"
-		case 5:
+		case 5
+			category="Multiplication"
 			cnummin=20
 			cnummax=2000
 			confQuestion="How high may the result maximally be?"
 		default:
 			Annoy "Something is wrong here! (Type="+SomType+"). Please report!"
 	end
+	H_Cls
+	H_Write "<table><Caption>",category,"</caption>"
+	H_Write "<tr valign=top>"
+	H_Write "<td rowspan=3 id='portret'></td>";
+	H_Write "<td align=right>",confquestion,"</td>"
+	H_Write "<td><input type=text id=confignum></td>"
+	H_Write "</tr>"
+	H_write "<tr valign=top>"
+	H_Write "<td align=right>How many calculation tasks do you want to do?</td>"
+	H_Write "<td><input type=text id=howmany></td>"
+	H_Write "</tr>"
+	H_write "<tr><td colspan=2><input type='submit'></td></tr>"
+	H_Write "</table>"
+	H_Flush
+	H_CreatePortrait "portret"
 end

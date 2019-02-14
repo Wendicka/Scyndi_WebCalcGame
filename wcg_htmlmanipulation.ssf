@@ -13,6 +13,8 @@ import "body.innerHTML"    var body:String
 import "header.innerHTML"  var header:string
 import "tcontent"          var content:string
 
+import "alert" Void Annoy string
+
 
 { These three pictures depict a girl from the Phantasar universe and they do not fall under the free license.
   They may therefore only be used in an unmodified version of the game. If you wish to modify the game, you 
