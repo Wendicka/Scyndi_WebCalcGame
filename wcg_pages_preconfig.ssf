@@ -1,0 +1,27 @@
+Void GoToConfig
+	Var confQuestion:string
+	Switch SomType
+		case 1:
+			cnummin=2
+			cnummax=10
+			confQuestion="Which table do you want to do?"
+		case 2:
+			cnummin=10
+			cnummax=1000
+			confQuestion="How high may the number be on which I may generate tasks?"
+		case 3:
+			cnummin=25
+			cnummax=1000
+			confQuestion="How high may the number be on which I may generate tasks?"
+		case 4:
+			cnummin=10
+			cnummax=1000
+			confQuestion="How high may the number you want to divide be max?"
+		case 5:
+			cnummin=20
+			cnummax=2000
+			confQuestion="How high may the result maximally be?"
+		default:
+			Annoy "Something is wrong here! (Type="+SomType+"). Please report!"
+	end
+end

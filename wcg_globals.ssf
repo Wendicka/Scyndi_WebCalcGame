@@ -17,6 +17,9 @@ var
 	r_right:Integer=0
 	r_wrong:Integer=0	
 	somtype:Integer=0
+	task:Integer
+	tasks:Integer
+	
 
 	flow:String
 end
