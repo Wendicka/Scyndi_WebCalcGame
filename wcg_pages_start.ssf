@@ -3,17 +3,18 @@
 void CB_EnterName	
 	name = ValueFromElement("enteryourname")
 	WriteLn "User entered name: ",name
-	{GotoHello {}
+	GotoHello 
 end
 
 void GotoStart
 	H_Cls
 	H_Write "<div style='float:right;' id='portret'>"
-	H_CreatePortrait "portret"
 	H_Write "</div>"
 	H_WriteLn "<h1 style=\"color:rgb(255,180,0)\">Hello there!</h1>"
 	H_Writeln "My name is ",mascotte_name,";"
 	H_Writeln "<p>What's your name? <input type='text' id='enteryourname'><input type='submit' value='>>' id='enternamenext'>"
+	H_Flush
+	H_CreatePortrait "portret"
 	purecode "WebJS","	let ln = document.getElementById('enternamenext');
 	if (ln) 
 		ln.addEventListener( 'click', $C{CB_ENTERNAME}C$ );

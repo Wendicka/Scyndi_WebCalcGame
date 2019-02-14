@@ -1,0 +1,22 @@
+void MenuDo Choice:Integer
+	writeln "User chose:",choice
+end
+
+void MenuLink Choice:Integer,Description:String
+	purecode "WebJS","tcontent = `${tcontent}<li><a href='javascript:$C{MENUDO}C$(${$C{CHOICE}C$});'>${$C{DESCRIPTION}C$}</a></li>`;"
+end
+
+void GoToMainMenu
+	Writeln "Creating the main menu"
+	H_CLS
+	H_Write "<table><Caption>Please select one of the following</Caption>"
+	H_Write "<tr valign=top><td><div id='portret'></div></td><td><ol type=1>"
+	MenuLink 1,"Multiplication tables"
+	MenuLink 2,"Addition"
+	MenuLink 3,"Substraction"
+	MenuLink 4,"Dividing"
+	MenuLink 5,"Multiplication"
+	H_Write "</ol><p>Please click (or touch) the type of your choice</td></tr></table>"
+	H_Flush
+	H_CreatePortrait "portret"
+end

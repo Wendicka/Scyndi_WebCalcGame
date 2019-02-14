@@ -3,6 +3,8 @@ program WebCalcGame
 {
 	This program is similar to BroksRekenen
 	However, this time, I'll make it working on the world wide web.
+
+	This program is just a prototype program to show a few things Scyndi can do
 }
 
 
@@ -13,6 +15,8 @@ end
 #include "wcg_htmlmanipulation.ssf"
 #include "wcg_globals.ssf"
 #include "wcg_pages_start.ssf"
+#include "wcg_pages_hello.ssf"
+#include "wcg_pages_mainmenu.ssf"
 
 
 void Main

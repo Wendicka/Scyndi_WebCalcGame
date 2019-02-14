@@ -4,12 +4,14 @@ purecode "WebJS","	// element
 	let body=document.getElementById(\"jb_body\");
 	let header;
 	let content;
+	let tcontent = \"\";
 "
+
 
 import "style.innerHTML"   var style:String
 import "body.innerHTML"    var body:String
 import "header.innerHTML"  var header:string
-import "content.innerHTML" var content:string
+import "tcontent"          var content:string
 
 
 { These three pictures depict a girl from the Phantasar universe and they do not fall under the free license.
@@ -28,7 +30,15 @@ void init
 			background-color:rgb(0,0,0);
 			color:rgb(200,200,200);
 			font-family: Arial;
-		   }"
+		   }
+		   a{
+		     color:rgb(0,180,255);
+		     text-decoration: none;
+			}
+		   a:hover{
+		     color:rgb(100,180,255);
+		     text-decoration: overline underline;
+              "
 	body = "<div id='jb_header' style='align:center'></div><p><div id='jb_content'></div>"
 	purecode "WebJS","header=document.getElementById('jb_header');"
 	purecode "WebJS","content=document.getElementById('jb_content');"
@@ -46,7 +56,7 @@ void H_Write s:...string
 	for ( d of $C{S}C$ ){
 		c = `${c}${d}`;
 	}
-	content.innerHTML = `${content.innerHTML}${c}\n`;
+	tcontent = `${tcontent}${c}\n`;
 	"
 end
 
@@ -56,7 +66,7 @@ void H_WriteLn s:...string
 	for ( d of $C{S}C$ ){
 		c = `${c}${d}`;
 	}
-	content.innerHTML = `${content.innerHTML}${c}<br>\n`;
+	tcontent = `${tcontent}${c}<br>\n`;
 	"
 end
 
@@ -67,6 +77,11 @@ void H_CreatePortrait element:String=""
 		purecode "WebJS","document.getElementById($C{ELEMENT}C$).innerHTML = `${document.getElementById($C{ELEMENT}C$).innerHTML}<img src='${$C{PIC_HAPPY}C$}' alt='${$C{MASCOTTE_NAME}C$}'>`;"
 	end
 	Writeln mascotte_name+" picture created"
+end
+
+void H_Flush
+	{WriteLn "Flushing:",content {}
+	purecode "WebJS","content.innerHTML=tcontent; tcontent=\"\";"
 end
 	
 func ValueFromElement:String Element:string

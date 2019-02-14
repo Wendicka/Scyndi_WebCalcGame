@@ -1,0 +1,29 @@
+var 
+	HelloStage:Integer = 0
+end
+
+void UpdateHello
+	HelloStage++
+	WriteLn "Hello.Stage","=",HelloStage
+	content = "<div style='float:left' id='portret'></div>"
+	H_Writeln "Hello ",name,";"
+	if HelloStage>=2
+		H_WriteLn "Let's do some calculation excersize!"
+	end
+	if HellOStage>=3
+		H_WriteLn "What kind of excersize do you want?"
+	end
+	H_Flush
+	H_CreatePortrait "portret"
+	if HelloStage<4
+		purecode "WebJS","setTimeout($C{UPDATEHELLO}C$, $C{BASIC_TIME}C$);"
+	else
+		Writeln "Let's get outta here!"
+		GoToMainMenu  
+	end
+end
+
+void GoToHello
+	HelloStage = 0
+	UpdateHello	
+end
