@@ -1,0 +1,20 @@
+module wcg_htmlmanipulation
+
+purecode "WebJS","	// element
+	let style=document.getElementById(\"jb_style\");
+	let body=document.getElementById(\"jb_body\");
+"
+
+import "style.innerHTML" var style:String
+import "body.innerHTML"  var body:String
+
+
+
+void init
+	style = "body{
+			background-color:rgb(0,0,0);
+			color:rgb(127,127,127);
+			font-family: Arial;
+		   }"
+	body = "<Center>Testing</center>"
+end

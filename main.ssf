@@ -1,0 +1,15 @@
+program WebCalcGame
+
+{
+	This program is similar to BroksRekenen
+	However, this time, I'll make it working on the world wide web.
+}
+
+use
+	math
+	wcg_htmlmanipulation
+end
+
+
+void Main
+end
