@@ -1,3 +1,30 @@
+void CheckConfig
+	var c1:boolean
+	var c2:boolean
+	c1 = ValueFromElementIsNumber("confignum")
+	c2 = ValueFromElementIsNumber("howmany")
+	WriteLn "Both questions are numbers?",c1,c2
+	if not ( c1 and c2 )
+		annoy "Both questions may only be answered with a NUMBER!"
+		return
+	end
+	cnum = IntFromElement("confignum")
+	tasks = IntFromElement("howmany")
+	if (cnum<cnummin) or (cnum>cnummax)
+		annoy "The first question requires a number from "+cnummin+" till "+cnummax+"!"
+		return
+	end
+	if tasks<10
+		Annoy "How lazy you are, "+name+"\nPlease go for more tasks!"
+		return
+	end
+	if tasks>20
+		Annoy "You are too much of a worcaholic, "+name+"\nBe careful, before it kills you!\n\nI won't go more than 20 tasks!"
+		return
+	end
+	WriteLn "Config accepted"
+end
+
 Void GoToConfig
 	Var confQuestion:string
 	var category:string
@@ -41,8 +68,9 @@ Void GoToConfig
 	H_Write "<td align=right>How many calculation tasks do you want to do?</td>"
 	H_Write "<td><input type=text id=howmany></td>"
 	H_Write "</tr>"
-	H_write "<tr><td colspan=2><input type='submit'></td></tr>"
+	H_write "<tr><td colspan=2><input type='submit' value='Begin' id=\"Begin\"></td></tr>"
 	H_Write "</table>"
 	H_Flush
+	purecode "WebJS","document.getElementById('Begin').addEventListener( 'click', $C{CHECKCONFIG}C$ );"
 	H_CreatePortrait "portret"
 end

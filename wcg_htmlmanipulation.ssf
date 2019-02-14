@@ -13,7 +13,7 @@ import "body.innerHTML"    var body:String
 import "header.innerHTML"  var header:string
 import "tcontent"          var content:string
 
-import "alert" Void Annoy string
+
 
 
 { These three pictures depict a girl from the Phantasar universe and they do not fall under the free license.
@@ -88,4 +88,16 @@ end
 	
 func ValueFromElement:String Element:string
 	purecode "WebJS","return document.getElementById($C{ELEMENT}C$).value;"
+end
+
+func IntFromElement:Integer Element:string
+	purecode "WebJS","return Math.floor(document.getElementById($C{ELEMENT}C$).value);"
+end
+
+func ValueFromElementIsNumber:Boolean Element
+	purecode "WebJS","return !isNaN(document.getElementById($C{ELEMENT}C$).value);"
+end
+
+void annoy message:string
+	purecode "WebJS","alert($C{MESSAGE}C$);"
 end
