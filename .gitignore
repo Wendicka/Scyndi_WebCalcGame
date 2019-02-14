@@ -1,0 +1,13 @@
+# Ignore output
+main.sout
+*translation.WebJS.js
+
+# No mac crap
+.DS_Store
+._*
+
+# MKL begone
+MKL*
+*MKL*
+
+
