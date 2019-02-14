@@ -1,0 +1,20 @@
+
+
+{ Just the global variables any component may need }
+
+const
+	{ 
+	  Marrilona is part to the Phantasar universeand she may only be present in an UNMODIFIED version of the game!
+	  if you want to modify this source (as the license allows), you must replace her with another character!
+	}
+	mascotte_name = "Marrilona"  
+end
+
+
+var
+	name:string
+	r_right:Integer=0
+	r_wrong:Integer=0
+
+	flow:String
+end

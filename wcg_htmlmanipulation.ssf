@@ -1,20 +1,74 @@
-module wcg_htmlmanipulation
 
 purecode "WebJS","	// element
 	let style=document.getElementById(\"jb_style\");
 	let body=document.getElementById(\"jb_body\");
+	let header;
+	let content;
 "
 
-import "style.innerHTML" var style:String
-import "body.innerHTML"  var body:String
+import "style.innerHTML"   var style:String
+import "body.innerHTML"    var body:String
+import "header.innerHTML"  var header:string
+import "content.innerHTML" var content:string
 
+
+{ These three pictures depict a girl from the Phantasar universe and they do not fall under the free license.
+  They may therefore only be used in an unmodified version of the game. If you wish to modify the game, you 
+  must replace them }
+const pic_thinking = "https://i.gjcdn.net/data/games/6/190/396940/media/game-description/think-bfyuuzhi.png"
+const pic_happy    = "https://i.gjcdn.net/data/games/6/190/396940/media/game-description/general-6ywupgx3.png"
+const pic_sad      = "https://i.gjcdn.net/data/games/6/190/396940/media/game-description/noemo-78yuw6zd.png"
+
+{ This picture is fine, all the way though }
+const pic_banner   = "https://i.gjcdn.net/data/games/6/190/396940/media/game-description/header-n3uvwxwm.png"
 
 
 void init
 	style = "body{
 			background-color:rgb(0,0,0);
-			color:rgb(127,127,127);
+			color:rgb(200,200,200);
 			font-family: Arial;
 		   }"
-	body = "<Center>Testing</center>"
+	body = "<div id='jb_header' style='align:center'></div><p><div id='jb_content'></div>"
+	purecode "WebJS","header=document.getElementById('jb_header');"
+	purecode "WebJS","content=document.getElementById('jb_content');"
+	header = "<img src='"+Pic_banner+"' alt='Web Calculation Game'>";
+end
+
+void H_CLS
+	WriteLn "Clear Screeen Request"
+	content = ""
+end
+
+void H_Write s:...string
+	purecode "WebJS","	// Let's work this out right!
+	let c = \" \";
+	for ( d of $C{S}C$ ){
+		c = `${c}${d}`;
+	}
+	content.innerHTML = `${content.innerHTML}${c}\n`;
+	"
+end
+
+void H_WriteLn s:...string
+	purecode "WebJS","	// Let's work this out right!
+	let c = \" \";
+	for ( d of $C{S}C$ ){
+		c = `${c}${d}`;
+	}
+	content.innerHTML = `${content.innerHTML}${c}<br>\n`;
+	"
+end
+
+void H_CreatePortrait element:String=""
+	if element=""
+		H_Write "<img src='",pic_happy,"' alt='",mascotte_name,"'>"   {}
+	else
+		purecode "WebJS","document.getElementById($C{ELEMENT}C$).innerHTML = `${document.getElementById($C{ELEMENT}C$).innerHTML}<img src='${$C{PIC_HAPPY}C$}' alt='${$C{MASCOTTE_NAME}C$}'>`;"
+	end
+	Writeln mascotte_name+" picture created"
+end
+	
+func ValueFromElement:String Element:string
+	purecode "WebJS","return document.getElementById($C{ELEMENT}C$).value;"
 end

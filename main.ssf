@@ -5,11 +5,16 @@ program WebCalcGame
 	However, this time, I'll make it working on the world wide web.
 }
 
+
 use
 	math
-	wcg_htmlmanipulation
 end
+
+#include "wcg_htmlmanipulation.ssf"
+#include "wcg_globals.ssf"
+#include "wcg_pages_start.ssf"
 
 
 void Main
+	GoToStart
 end
