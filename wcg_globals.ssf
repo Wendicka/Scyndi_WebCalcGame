@@ -48,6 +48,7 @@ var
 	cnummin:Integer
 	cnummax:integer 
 	correctanswer:Integer
+	ignoreanswer:boolean
 
 	flow:String
 end

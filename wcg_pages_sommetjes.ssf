@@ -26,12 +26,16 @@ Version: 19.02.15
 
 import "document.getElementById('tasknum').innerHTML" var TaskCaption:String
 import "document.getElementById('sommetje').innerHTML" var Sommetje:String
+import "document.getElementById('resultaat').innerHTML" var resultaat:String
 
 void Create_Sommetje
 	var cijfer1:integer
 	var cijfer2:integer
+	ignoreanswer = 1=2 {must be false... The compiler is bugged when I just put in false}
+	resultaat=""
 	task++
 	if task>tasks
+		WriteLn "The end's been reached!"
 		{Goto_Einde}
 		return
 	end
@@ -74,6 +78,28 @@ void Create_Sommetje
 	ModifyElement "portraitimg","src",pic_thinking
 end
 
+void CheckAnswer
+	writeln "User requested to check their answer."
+	if ignoreanswer; return; end
+	ignoreanswer=1=1 {Must be true, compiler bug on true and false definitions... How odd}
+	var isnum:boolean
+	var ant:integer
+	isnum = ValueFromElementIsNumber("antwoord")
+	if not isnum
+		annoy "Please enter a NUMBER only!"
+	end
+	ant = IntFromElement("antwoord")
+	if ant=correctanswer
+		resultaat = "<span style='color:rgb(180,255,0)'>Correct! Well done!</span>"
+		ModifyElement "portraitimg","src",pic_happy
+		r_right++
+	else
+		resultaat = "<span style='color:rgb(255,0,0)'>Unfortunately, that not right!<br />The correct answer is <span='style:rgb(0,180,255)'>"+correctanswer+"</span></span>"
+		ModifyElement "portraitimg","src",pic_sad
+		r_wrong++
+	end
+	purecode "WebJS","setTimeout($C{CREATE_SOMMETJE}C$, $C{BASIC_TIME}C$);"
+end
 
 void GoToSommetjes
 	content = "<table><caption id='tasknum'></caption>
@@ -82,11 +108,14 @@ void GoToSommetjes
 		<td><span id='sommetje' style='color:rgb(180,0,255);'></span><input style='color:rgb(0,180,255); background-color:rgb(0,18,25);' id='antwoord'><input id='bevestig' value='>>' type='submit'></td>
 	</tr>
 	<tr>
-		<td id='resultaat'>
+		<td id='resultaat'></td>
 	</tr>
 </table>"
 	H_Flush
 	H_CreatePortrait "portretcell"
-	task = 0
+	task    = 0
+	r_right = 0
+	r_wrong = 0
 	Create_Sommetje
+	purecode "WebJS","document.getElementById('bevestig').addEventListener( 'click', $C{CHECKANSWER}C$ );"
 end
