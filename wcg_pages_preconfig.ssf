@@ -17,6 +17,7 @@
 		GNU General Public License for more details.
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
 	Please note that some references to data like pictures or audio, do not automatically
 	fall under this licenses. Mostly this is noted in the respective files.
 		
@@ -47,7 +48,7 @@ void CheckConfig
 		return
 	end
 	WriteLn "Config accepted"
-	GotoSommetjes
+	GoToSommetjes
 end
 
 Void GoToConfig

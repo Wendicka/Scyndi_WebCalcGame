@@ -23,6 +23,7 @@
 		
 Version: 19.02.15
   --- END LICENSE BLOCK --- } 
+
 import "document.getElementById('tasknum').innerHTML" var TaskCaption:String
 import "document.getElementByID('sommetje').innerHTML" var Sommetje:String
 
@@ -37,8 +38,38 @@ void Create_Sommetje
 	TaskCaption = "Task "+task+" of "+tasks
 	switch somtype
 		case 1
-			Sommetje := task+" * "+cnum+" = "
+			{tafeltjes}
+			Sommetje      = ""+task+" * "+cnum+" = "
 			correctanswer = task*cnum
+		case 2
+			{optellen}
+			cijfer1       = Rand(1,cnum)
+			cijfer2       = Rand(1,cnum)
+			sommetje      = ""+cijfer1+" + "+cijfer2+" = "
+			correctanswer = cijfer1 + cijfer2
+		case 3
+			{min sommen}
+			cijfer1	   = rand(1,cnum)
+			cijfer2       = rand(1,ceil(cijfer1/2))
+			sommetje      = ""+cijfer1+" - "+cijfer2+" = "
+			correctanswer = cijfer1 - cijfer2
+		case 4
+			{delen}
+			repeat
+				correctanswer = rand(1,cnum)
+				cijfer2       = rand(2,cijfer1)
+				cijfer1       = cijfer2 * correctanswer
+			until cijfer1<=cnum
+			sommetje = ""+cijfer1+" : "+cijfer2+" = "
+		case 5
+			{vermenigvuldigen}
+			repeat
+				cijfer1       = rand(1,cnum)
+				cijfer2       = rand(1,cnum)
+				correctanswer = cijfer1 * cijfer2
+			until correctanswer<=cnum
+			sommetje = ""+cijfer1+" x "+cijfer2+" = "
+		default; annoy "Unknown task type"
 	end
 end
 
