@@ -45,6 +45,7 @@ end
 #include "wcg_pages_mainmenu.ssf"
 #include "wcg_pages_preconfig.ssf"
 #include "wcg_pages_sommetjes.ssf"
+#include "wcg_pages_einde.ssf"
 
 
 void Main
