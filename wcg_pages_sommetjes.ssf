@@ -71,6 +71,7 @@ void Create_Sommetje
 			sommetje = ""+cijfer1+" x "+cijfer2+" = "
 		default; annoy "Unknown task type"
 	end
+	ModifyElement "portraitimg","src",pic_thinking
 end
 
 

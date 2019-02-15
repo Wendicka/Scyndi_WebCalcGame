@@ -101,7 +101,7 @@ void H_CreatePortrait element:String=""
 	if element=""
 		H_Write "<img src='",pic_happy,"' alt='",mascotte_name,"' id='portraitimg'>"   {}
 	else
-		purecode "WebJS","document.getElementById($C{ELEMENT}C$).innerHTML = `${document.getElementById($C{ELEMENT}C$).innerHTML}<img src='${$C{PIC_HAPPY}C$}' alt='${$C{MASCOTTE_NAME}C$}'>`;"
+		purecode "WebJS","document.getElementById($C{ELEMENT}C$).innerHTML = `${document.getElementById($C{ELEMENT}C$).innerHTML}<img id='portraitimg' src='${$C{PIC_HAPPY}C$}' alt='${$C{MASCOTTE_NAME}C$}'>`;"
 	end
 	Writeln mascotte_name+" picture created"
 end
@@ -125,7 +125,7 @@ end
 
 void ModifyElement Element:String,Field:String,NewValue:String
 	purecode "WebJS","	e = document.getElementById($C{ELEMENT}C$);
-	if (!e) consoloe.log(`Element ${$C{ELEMENT}C$} does not exit!`);
+	if (!e) console.log(`Element ${$C{ELEMENT}C$} does not exist!`);
 	e[$C{FIELD}C$]=$C{NEWVALUE}C$"
 end
 
