@@ -17,10 +17,44 @@
 		GNU General Public License for more details.
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
 	Please note that some references to data like pictures or audio, do not automatically
 	fall under this licenses. Mostly this is noted in the respective files.
 		
 Version: 19.02.15
   --- END LICENSE BLOCK --- } 
+import "document.getElementById('tasknum').innerHTML" var TaskCaption:String
+import "document.getElementByID('sommetje').innerHTML" var Sommetje:String
+
+void Create_Sommetje
+	var cijfer1:integer
+	var cijfer2:integer
+	task++
+	if task>tasks
+		{Goto_Einde}
+		return
+	end
+	TaskCaption = "Task "+task+" of "+tasks
+	switch somtype
+		case 1
+			Sommetje := task+" * "+cnum+" = "
+			correctanswer = task*cnum
+	end
+end
+
+
 void GoToSommetjes
+	content = "<table><caption id='tasknum'></caption>
+	<tr>
+		<td id='portretcell' rowspan=2 align=left'></td>
+		<td><span id='sommetje' style='color:rgb(180,0,255);'></span><input style='color:rgb(0,180,255); background-color(0,18,25);' id='antwoord'><input id='bevestig' value='>>' type='submit'></td>
+	</tr>
+	<tr>
+		<td id='resultaat'>
+	</tr>
+</table>"
+	H_Flush
+	H_CreatePortrait "portret"
+	task = 0
+	Create_Sommetje
 end
