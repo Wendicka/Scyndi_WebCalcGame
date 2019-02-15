@@ -1,0 +1,17 @@
+void NoMore
+	H_Cls
+	H_Write "<div id='portret' style='float:left'></div>"
+	H_Writeln "I guess you've had enough, ",name
+	H_WriteLn "It was a pleasure working with you, goodbye"
+	H_CreatePortrait "portret"
+	H_Flush
+	purecode "WebJS","setTimeout($C{GOTOSTART}C$, $C{BASIC_TIME}C$);"
+end
+
+void GoToEinde
+	H_Cls
+	content = "<div id='portret' style='float:left'></div>You had <span style='color:rgb(180,255,0)'>"+r_right+"</span> correct and <span style='color:rgb(255,0,0)'>"+r_wrong+"</span> wrong answers.<p>Do you want to do this again ? "
+	purecode "WebJS","tcontent += \"<a href='javascript:$C{GOTOHELLO}C$();'>Yes</a> <a href='javascript:$C{NOMORE}C$();'>No</a>\";"	
+	H_Flush
+	H_CreatePortrait "portret"
+end
