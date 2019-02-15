@@ -36,9 +36,10 @@ void Create_Sommetje
 	task++
 	if task>tasks
 		WriteLn "The end's been reached!"
-		{Goto_Einde}
+		GotoEinde
 		return
 	end
+	ModifyElement "antwoord","value",""
 	TaskCaption = "Task "+task+" of "+tasks
 	switch somtype
 		case 1
@@ -61,7 +62,7 @@ void Create_Sommetje
 			{delen}
 			repeat
 				correctanswer = rand(1,cnum)
-				cijfer2       = rand(2,cijfer1)
+				cijfer2       = rand(2,correctanswer)
 				cijfer1       = cijfer2 * correctanswer
 			until cijfer1<=cnum
 			sommetje = ""+cijfer1+" : "+cijfer2+" = "
